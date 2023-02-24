@@ -1,0 +1,176 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ff-heading: "Staatliches", sans-serif;
+  --ff-texting: "Palanquin", sans-serif;
+  font-size: 62.5%;
+  --hue: 250;
+}
+header {
+  background-color: #a28ca0;
+  font-family: var(--ff-heading);
+  text-align: center;
+  animation: topdown 700ms;
+}
+
+header h1 {
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 3.4rem;
+  letter-spacing: 0.05em;
+
+  color: #ffffff;
+}
+
+.paragrafo {
+  font-family: var(--ff-texting);
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  color: #23053a;
+  padding: 6.3rem;
+  background-color: #e6ceed;
+}
+
+.faixa {
+  width: 100%;
+  background: #cbc0d3;
+  padding: 8px 0 8px;
+}
+
+main {
+  display: grid;
+  gap: 3.2rem;
+  animation: downtop 700ms 350ms backwards;
+  background: #e6ceed;
+  width: 100%;
+  min-height: 100vh;
+
+  /* o primeiro ms é onde começa o clique, o segundo ms é o delay em relação 
+  aonde vai terminar, no caso no opaccity 1 (100%) */
+  /* usaremos backwards ou forwards para usar o delay sempre*/
+}
+
+.card {
+  position: relative;
+}
+
+.card img {
+  width: 35rem;
+  max-width: 100%;
+  object-fit: cover;
+  filter: brightness(0.5) saturate(1.5);
+  border-radius: 2rem;
+  transition: all 200ms;
+}
+
+.card img:hover {
+  transform: scale(1.1); /* transições das img */
+  opacity: 0.4;
+}
+
+.card h2 {
+  position: absolute;
+  bottom: 5.2rem;
+  left: 2.8rem;
+  font-family: var(--ff-heading);
+  font-size: 3rem; /* versao desktop */
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  color: #585557;
+}
+
+.card h2 span {
+  position: absolute;
+  background: #feeafa;
+  border-radius: 2rem;
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: transleteY(0);
+  }
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 970px) {
+  .page {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .page header {
+    max-width: 37.7rem;
+  }
+
+  .paragrafo {
+    background-color: #a28ca0;
+  }
+  main {
+    grid-template-areas:
+      "A B C"
+      "D B F"
+      "D E F";
+    grid-template-columns: 44rem 44rem 44rem;
+    grid-template-rows: 30rem 30rem 30rem;
+    gap: 3.2rem;
+    padding: 64px 98px;
+    justify-content: center;
+  }
+
+  main div img {
+    height: 100%;
+  }
+
+  main div:nth-child(1) {
+    /* versao desktop */
+    grid-area: A;
+  }
+  main div:nth-child(2) {
+    /* versao desktop */
+    grid-area: B;
+  }
+  main div:nth-child(3) {
+    /* versao desktop */
+    grid-area: C;
+  }
+  main div:nth-child(4) {
+    /* versao desktop */
+    grid-area: D;
+  }
+
+  main div:nth-child(5) {
+    /* versao desktop */
+    grid-area: E;
+  }
+  main div:nth-child(6) {
+    /* versao desktop */
+    grid-area: F;
+  }
+}
